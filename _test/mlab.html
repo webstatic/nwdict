@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <!--<script src="../lib/xdr.js"></script>-->
+    <script src="../lib/jquery/jquery-2.1.1.js"></script>
+    <script src="../NwLogWords/mlabApiConn.js"></script>
+
+
+    <script>
+
+        $.getJSON('//ip-api.com/json?callback=?', function (data) {//150 requests per minute = 9000/hr //best geolocation
+            //console.log('ip-api', JSON.stringify(data, null, 2));
+
+            //ip-api {
+            //    "as": "AS23969 TOT Public Company Limited",
+            //    "city": "Phuket",
+            //    "country": "Thailand",
+            //    "countryCode": "TH",
+            //    "isp": "TOT",
+            //    "lat": 7.95,
+            //    "lon": 98.3583,
+            //    "org": "TOT",
+            //    "query": "1.0.255.199",
+            //    "region": "83",
+            //    "regionName": "Phuket",
+            //    "status": "success",
+            //    "timezone": "Asia/Bangkok",
+            //    "zip": "83000"
+            //}
+
+            //var conn = new mlabApiConn("32KYjlie99BH6Euf8x98GQaOVbXAj-Zw");
+            mlabApiConn.k = "32KYjlie99BH6Euf8x98GQaOVbXAj-Zw";
+            mlabApiConn.insert('connectlog', 'data', { ip: data.query, data: data, type: 'ip-api', date: new Date() });
+        });
+
+
+
+        //conn.insert('', '', {}, {});
+
+    </script>
+
+    <script type="application/javascript">
+         
+    </script>
+</head>
+<body>
+</body>
+</html>

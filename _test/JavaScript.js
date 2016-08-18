@@ -1,0 +1,1 @@
+this.testFunc=function(){return"from test func"};
